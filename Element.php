@@ -1,12 +1,12 @@
 <?php
 
-class Element{
-
+class Element
+{
     private string $name;
-    //elements, kurš tiek sakauts, kurš zaudē
     private Element $beats;
-    //elements ->papīrs, šķēres, akmens
-    public function __construct($name){
+
+    public function __construct($name)
+    {
         $this->name = $name;
     }
 
@@ -14,7 +14,6 @@ class Element{
     {
         return $this->name;
     }
-
 
     public function getBeats(): Element
     {
