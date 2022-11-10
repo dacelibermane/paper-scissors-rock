@@ -16,10 +16,12 @@ class Game
 
     public function getWinner(): ?Player
     {
+
         if ($this->player1->getSelectedElement()->getName() === $this->player2->getSelectedElement()->getName()) {
             return null;
         }
-        if ($this->player1->getSelectedElement()->getBeats()->getName() === $this->player2->getSelectedElement()->getName()) {
+
+        if (in_array($this->player1->getSelectedElement()->getName(), $this->player1->getSelectedElement()->getBeats()) && $this->player1->getSelectedElement()->getName() === $this->player2->getSelectedElement()->getName()) {
             return $this->player1;
         }
         return $this->player2;

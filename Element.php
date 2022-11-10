@@ -3,7 +3,7 @@
 class Element
 {
     private string $name;
-    private Element $beats;
+    private array $beats;
 
     public function __construct($name)
     {
@@ -15,13 +15,13 @@ class Element
         return $this->name;
     }
 
-    public function getBeats(): Element
+    public function getBeats(): array
     {
         return $this->beats;
     }
 
-    public function setBeats(Element $element): void
+        public function setBeats(array $beats): void
     {
-        $this->beats = $element;
+        $this->beats []= $beats;
     }
 }
