@@ -8,7 +8,6 @@ $paper = new Element("Paper");
 $scissors = new Element("Scissors");
 $rock = new Element("Rock");
 
-//iestatam vērtību, kurš kuru uzvar
 $rock->setBeats($scissors);
 $paper->setBeats($rock);
 $scissors->setBeats($paper);
@@ -27,11 +26,21 @@ $selection = (int)readline('Enter element: ');
 $selectedElement = $elements[$selection];
 $opponentElement = $elements[array_rand($elements)];
 
-//echo $selectedElement->getName() . " VS " . $opponentElement->getName() . PHP_EOL;
-//inicializē spēli, kurā ir visi spēles elementi
-$game = new Game($selectedElement, $opponentElement);
+
+$player1 = new Player("John", $selectedElement);
+$player2 = new Player("Computer", $opponentElement);
+
+echo $player1->getSelectedElement()->getName(). " VS " . $player2->getSelectedElement()->getName() . PHP_EOL;
+
+$game = new Game($player1, $player2);
 $winner = $game->getWinner();
 
-if($winner === null){
+if($winner == null){
     echo "The game is a tie!";
+    exit;
 }
+
+echo "The winner is " . $winner->getName() . "!!!" . PHP_EOL;
+
+
+

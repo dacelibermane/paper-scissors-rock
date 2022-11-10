@@ -1,22 +1,25 @@
 <?php
-class Game{
+
+class Game
+{
+
+    private Player $player1;
+    private Player $player2;
 
 
-    private Element $player1;
-    private Element $player2;
-
-
-    public function __construct(Element $player1, Element $player2){
+    public function __construct(Player $player1, Player $player2)
+    {
         $this->player1 = $player1;
         $this->player2 = $player2;
+
     }
 
-    public function getWinner(): ?Element{
-        if($this->player1->getName() === $this->player2->getName()){
+    public function getWinner(): ?Player
+    {
+        if ($this->player1->getSelectedElement()->getName() === $this->player2->getSelectedElement()->getName()) {
             return null;
         }
-        if($this->player1->getBeats()->getName() === $this->player2->getName())
-        {
+        if ($this->player1->getSelectedElement()->getBeats()->getName() === $this->player2->getSelectedElement()->getName()) {
             return $this->player1;
         }
         return $this->player2;
