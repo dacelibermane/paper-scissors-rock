@@ -12,7 +12,14 @@ class Game{
     }
 
     public function getWinner(): ?Element{
-        
+        if($this->player1->getName() === $this->player2->getName()){
+            return null;
+        }
+        if($this->player1->getBeats()->getName() === $this->player2->getName())
+        {
+            return $this->player1;
+        }
+        return $this->player2;
     }
 
 }

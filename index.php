@@ -2,11 +2,21 @@
 
 require_once 'Element.php';
 require_once 'Game.php';
+require_once  'Player.php';
+
+$paper = new Element("Paper");
+$scissors = new Element("Scissors");
+$rock = new Element("Rock");
+
+//iestatam vērtību, kurš kuru uzvar
+$rock->setBeats($scissors);
+$paper->setBeats($rock);
+$scissors->setBeats($paper);
 
 $elements = [
-    new Element("Paper"),
-    new Element("Scissors"),
-    new Element("Rock")
+    $paper,
+    $scissors,
+    $rock
 ];
 
 foreach ($elements as $key => $element){
@@ -21,3 +31,7 @@ $opponentElement = $elements[array_rand($elements)];
 //inicializē spēli, kurā ir visi spēles elementi
 $game = new Game($selectedElement, $opponentElement);
 $winner = $game->getWinner();
+
+if($winner === null){
+    echo "The game is a tie!";
+}
