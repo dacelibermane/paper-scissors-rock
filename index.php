@@ -20,11 +20,11 @@ $elements = [
 ];
 
 //winning combinations
-$paper->setBeats([$rock, $spock]);
-$lizard->setBeats([$paper, $spock]);
-$scissors->setBeats([$paper, $lizard]);
-$spock->setBeats([$scissors, $rock]);
-$rock->setBeats([$scissors, $lizard]);
+$paper->setBeats($rock, $spock);
+$lizard->setBeats($paper, $spock);
+$scissors->setBeats($paper, $lizard);
+$spock->setBeats($scissors, $rock);
+$rock->setBeats($scissors, $lizard);
 
 
 foreach ($elements as $key => $element){

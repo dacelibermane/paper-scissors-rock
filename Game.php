@@ -21,8 +21,9 @@ class Game
             return null;
         }
 
-        if (in_array($this->player1->getSelectedElement()->getName(), $this->player1->getSelectedElement()->getBeats()) && $this->player1->getSelectedElement()->getName() === $this->player2->getSelectedElement()->getName()) {
-            return $this->player1;
+        foreach ($this->player1->getSelectedElement()->getBeats() as $element) {
+            if ($element->getName() === $this->player2->getSelectedElement()->getName())
+                return $this->player1;
         }
         return $this->player2;
     }

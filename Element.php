@@ -3,7 +3,7 @@
 class Element
 {
     private string $name;
-    private array $beats;
+    private array $beats = [];
 
     public function __construct($name)
     {
@@ -20,8 +20,10 @@ class Element
         return $this->beats;
     }
 
-        public function setBeats(array $beats): void
+        public function setBeats(Element ...$elements): void
     {
-        $this->beats []= $beats;
+        foreach ($elements as $element){
+            $this->beats[] = $element;
+        }
     }
 }
